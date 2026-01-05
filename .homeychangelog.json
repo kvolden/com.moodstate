@@ -1,5 +1,8 @@
 {
   "0.0.1": {
     "en": "Initial version"
+  },
+  "0.0.2": {
+    "en": "Added source link to manifest"
   }
 }

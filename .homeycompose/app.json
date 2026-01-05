@@ -1,6 +1,6 @@
 {
   "id": "com.moodstate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "brandColor": "#e0b338",
