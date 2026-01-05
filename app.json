@@ -31,6 +31,11 @@
     "email": "kvolden@gmail.com"
   },
   "source": "https://github.com/kvolden/com.moodstate",
+  "homeyCommunityTopicId": 148596,
+  "support": "https://community.homey.app/t/148596",
+  "bugs": {
+    "url": "https://github.com/kvolden/com.moodstate/issues"
+  },
   "flow": {
     "conditions": [
       {
