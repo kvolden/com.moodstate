@@ -1,0 +1,32 @@
+{
+  "id": "com.moodstate",
+  "version": "0.0.1",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "brandColor": "#e0b338",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Mood State"
+  },
+  "description": {
+    "en": "Compare your moods with current light states.",
+    "no": "Sammenlign dine moods med nåværende lystilstander."
+  },
+  "category": [
+    "lights"
+  ],
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Kjetil Volden",
+    "email": "kvolden@gmail.com"
+  }
+}

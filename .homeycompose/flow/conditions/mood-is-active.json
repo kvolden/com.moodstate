@@ -1,0 +1,23 @@
+{
+  "title": {
+    "en": "Mood !{{is|is not}} active",
+    "no": "Mood !{{er|er ikke}} aktiv"
+  },
+  "titleFormatted": {
+    "en": "Mood [[mood]] !{{is|is not}} active",
+    "no": "Mood [[mood]] !{{er|er ikke}} aktiv"
+  },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "mood",
+      "title": {
+        "en": "Mood",
+        "no": "Mood"
+      },
+      "placeholder": {
+        "en": "mood"
+      }
+    }
+  ]
+}
