@@ -4,5 +4,8 @@
   },
   "0.0.2": {
     "en": "Added source link to manifest"
+  },
+  "0.0.3": {
+    "en": "Added logging of reason for mood mismatch"
   }
 }
