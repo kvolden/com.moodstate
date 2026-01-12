@@ -27,6 +27,7 @@ module.exports = class MoodStateApp extends Homey.App {
     cardMoodIsActive.registerRunListener(async (args) => {
       const mood = await api.moods.getMood({ id: args.mood.id });
       if (!mood?.devices) {
+        this.log(`Mood ${mood.id} has no devices`);
         return false;
       }
       const deviceEntries = Object.entries(mood.devices);
@@ -40,16 +41,19 @@ module.exports = class MoodStateApp extends Homey.App {
         const device = devicesById[deviceId];
         if (!device) {
           // Device not found
+          this.log(`Device ${deviceId} not found for mood ${mood.id}`);
           return false;
         }
         if (!device.available) {
           // Device is offline
+          this.log(`Device ${deviceId} is offline for mood ${mood.id}`);
           return false;
         }
         for (const [capabilityId, moodValue] of Object.entries(moodData.state)) {
           const cap = device.capabilitiesObj?.[capabilityId];
           if (!cap) {
             // Capability not found on device
+            this.log(`Capability ${capabilityId} not found on device ${deviceId} for mood ${mood.id}`);
             return false;
           }
           const deviceValue = cap.value;
@@ -57,18 +61,22 @@ module.exports = class MoodStateApp extends Homey.App {
           if (typeof moodValue === 'number'){
             // Probably not a possible failure, but just in case
             if (typeof deviceValue !== 'number') {
+              this.log(`Mismatched types for capability ${capabilityId} on device ${deviceId} for mood ${mood.id}`);
               return false;
             }
             // Slight relaxation for float comparisons
             if (Math.abs(deviceValue - moodValue) > 0.01) {
+              this.log(`Value mismatch for capability ${capabilityId} on device ${deviceId} for mood ${mood.id}: expected ${moodValue}, got ${deviceValue}`);
               return false;
             }
           }
           else if (deviceValue !== moodValue) {
+            this.log(`Value mismatch for capability ${capabilityId} on device ${deviceId} for mood ${mood.id}: expected ${moodValue}, got ${deviceValue}`);
             return false;
           }
         }
       }
+      this.log(`Mood ${mood.id} is active`);
       return true;
     });
   }
