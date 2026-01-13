@@ -54,16 +54,10 @@ module.exports = class MoodStateApp extends Homey.App {
           if (!cap) {
             // Capability not found on device
             this.log(`Capability ${capabilityId} not found on device ${deviceId} for mood ${mood.id}`);
-            return false;
+            continue;
           }
           const deviceValue = cap.value;
-
           if (typeof moodValue === 'number'){
-            // Probably not a possible failure, but just in case
-            if (typeof deviceValue !== 'number') {
-              this.log(`Mismatched types for capability ${capabilityId} on device ${deviceId} for mood ${mood.id}`);
-              return false;
-            }
             // Slight relaxation for float comparisons
             if (Math.abs(deviceValue - moodValue) > 0.01) {
               this.log(`Value mismatch for capability ${capabilityId} on device ${deviceId} for mood ${mood.id}: expected ${moodValue}, got ${deviceValue}`);
