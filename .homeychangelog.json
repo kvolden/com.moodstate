@@ -10,5 +10,8 @@
   },
   "0.0.4": {
     "en": "Removed unwanted failure points for mood matching"
+  },
+  "0.0.5": {
+    "en": "Added zone as description in mood autocompletion."
   }
 }
