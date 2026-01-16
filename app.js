@@ -14,11 +14,13 @@ module.exports = class MoodStateApp extends Homey.App {
 
     cardMoodIsActive.registerArgumentAutocompleteListener("mood", async (query, args) => {
       const moods = await api.moods.getMoods();
+      const zones = await api.zones.getZones();
       return Object.values(moods)
         .filter(mood => mood.name.toLowerCase().includes(query.toLowerCase()))
         .map(mood => {
           return {
             name: mood.name,
+            description: zones[mood.zone]?.name,
             id: mood.id,
           };
         });
