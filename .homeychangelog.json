@@ -13,5 +13,8 @@
   },
   "0.0.5": {
     "en": "Added zone as description in mood autocompletion."
+  },
+  "1.0.0": {
+    "en": "Remove logging, ready for public."
   }
 }
