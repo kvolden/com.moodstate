@@ -16,5 +16,8 @@
   },
   "1.0.0": {
     "en": "Remove logging, ready for public."
+  },
+  "1.0.1": {
+    "en": "Fixed issue with moods sometimes reporting mismatch for turned off devices when it should report match"
   }
 }
