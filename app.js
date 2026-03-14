@@ -40,14 +40,24 @@ module.exports = class MoodStateApp extends Homey.App {
       );
       for (const [deviceId, moodData] of deviceEntries) {
         const device = devicesById[deviceId];
-        if (!device) {
-          // Device not found
-          return false;
+        // Device not found
+        if (!device) return false;
+        // Device is offline
+        if (!device.available) return false;
+
+        // If onoff capability is set to false in the mood, only compare the onoff capability and ignore the rest
+        if (Object.prototype.hasOwnProperty.call(moodData.state, 'onoff')) {
+          const moodOnoff = moodData.state.onoff;
+          const deviceOnoffCap = device.capabilitiesObj?.['onoff'];
+          if (deviceOnoffCap) {
+            const deviceOnoffValue = deviceOnoffCap.value;
+            if (moodOnoff === false && deviceOnoffValue === false) {
+              // Device is off and mood expects it off — other capabilities don't matter for this device
+              continue;
+            }
+          }
         }
-        if (!device.available) {
-          // Device is offline
-          return false;
-        }
+
         for (const [capabilityId, moodValue] of Object.entries(moodData.state)) {
           const cap = device.capabilitiesObj?.[capabilityId];
           if (!cap) {
