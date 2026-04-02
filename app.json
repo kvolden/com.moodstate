@@ -36,6 +36,13 @@
   "bugs": {
     "url": "https://github.com/kvolden/com.moodstate/issues"
   },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "KjetilVolden"
+      }
+    }
+  },
   "flow": {
     "conditions": [
       {

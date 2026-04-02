@@ -34,5 +34,12 @@
   "support": "https://community.homey.app/t/148596",
   "bugs": {
     "url": "https://github.com/kvolden/com.moodstate/issues"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "KjetilVolden"
+      }
+    }
   }
 }
