@@ -19,5 +19,8 @@
   },
   "1.0.1": {
     "en": "Fixed issue with moods sometimes reporting mismatch for turned off devices when it should report match"
+  },
+  "1.0.2": {
+    "en": "Better matching against color lights (off ignores other values)."
   }
 }
